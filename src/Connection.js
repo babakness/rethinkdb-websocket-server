@@ -19,7 +19,7 @@ export class Connection {
     this.remotePort = webSocket._socket.remotePort;
   }
 
-  start({sessionCreator, dbHost, dbPort, dbAuthKey, dbSsl}) {
+  start({sessionCreator, dbHost, dbPort, dbAuthKey, dbSsl, dbUser, dbPassword}) {
     const urlQueryParams = url.parse(this.webSocket.upgradeReq.url, true).query;
     const req = this.webSocket.upgradeReq;
     this.sessionPromise = sessionCreator(urlQueryParams, req).catch(e => {
@@ -32,8 +32,18 @@ export class Connection {
     this.isClosed = false;
     let options = {
       host: dbHost,
-      port: dbPort
+      port: dbPort,
+
     };
+    // To allow RethinkDB to fall-back on its own defaults, we completely omit the parameters not given.
+    if(dbUser !== undefined) {
+      options.dbUser = dbUser
+    }
+
+    if(dbUser !== undefined) {
+      options.dbPassword = dbPassword
+    }
+
     if (typeof dbSsl === 'boolean' && dbSsl) {
       this.dbSocket = tls.connect(options);
     } else if (typeof dbSsl === 'object') {
