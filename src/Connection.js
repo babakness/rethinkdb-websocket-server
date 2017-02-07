@@ -36,12 +36,12 @@ export class Connection {
 
     };
     // To allow RethinkDB to fall-back on its own defaults, we completely omit the parameters not given.
-    if(dbUser !== undefined) {
-      options.dbUser = dbUser
+    if (dbUser !== undefined) {
+      options.dbUser = dbUser;
     }
 
-    if(dbUser !== undefined) {
-      options.dbPassword = dbPassword
+    if (dbUser !== undefined) {
+      options.dbPassword = dbPassword;
     }
 
     if (typeof dbSsl === 'boolean' && dbSsl) {
