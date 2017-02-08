@@ -90,6 +90,10 @@ function listen(_ref) {
 
   // For TLS connections to RethinkDB, equivalent to ssl argument in r.connect
   dbSsl = _ref$dbSsl === undefined ? false : _ref$dbSsl;
+  var _ref$dbUser = _ref.dbUser;
+  var dbUser = _ref$dbUser === undefined ? null : _ref$dbUser;
+  var _ref$dbPassword = _ref.dbPassword;
+  var dbPassword = _ref$dbPassword === undefined ? null : _ref$dbPassword;
   var _ref$queryWhitelist = _ref.queryWhitelist;
   var
 

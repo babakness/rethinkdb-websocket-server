@@ -49,7 +49,7 @@ export function listen({
 
   dbUser = null,
 
-  dbPassword =  null,
+  dbPassword = null,
 
   // List of pattern RQs, where an incoming query must match at least one
   // (see QueryValidator.js)

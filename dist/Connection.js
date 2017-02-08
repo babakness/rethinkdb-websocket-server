@@ -80,15 +80,14 @@ var Connection = (function () {
       var options = {
         host: dbHost,
         port: dbPort
-
       };
       // To allow RethinkDB to fall-back on its own defaults, we completely omit the parameters not given.
       if (dbUser !== undefined) {
-        options.dbUser = dbUser;
+        options.user = dbUser;
       }
 
-      if (dbUser !== undefined) {
-        options.dbPassword = dbPassword;
+      if (dbPassword !== undefined) {
+        options.password = dbPassword;
       }
 
       if (typeof dbSsl === 'boolean' && dbSsl) {
