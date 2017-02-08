@@ -47,6 +47,10 @@ export function listen({
   // For TLS connections to RethinkDB, equivalent to ssl argument in r.connect
   dbSsl = false,
 
+  dbUser = null,
+
+  dbPassword =  null,
+
   // List of pattern RQs, where an incoming query must match at least one
   // (see QueryValidator.js)
   queryWhitelist = [],
